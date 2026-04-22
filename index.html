@@ -8,6 +8,35 @@
 
 </head>
 <body>
+    <header>
+        <h1>The Flow</h1>
+        <p id="task-counter">0 tasks remaining</p>
+    </header>
+
+    <main>
+        <!-- Input area -->
+        <div class="input-area">
+            <input type="text" id="task-input" placeholder="What do you need to do?">
+            <select id="category-select">
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+                <option value="urgent">Urgent</option>
+            </select>
+            <button id="add-btn">Add Task</button>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <!-- Task list -->
+        <ul id="task-list"></ul>
+
+    </main>
+
     
     <script src="app.js"></script>
 </body>
