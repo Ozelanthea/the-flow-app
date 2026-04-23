@@ -10,7 +10,16 @@ btn.addEventListener("click", (event) => {
 
     const item = document.createElement("li");
     item.classList.add("item");
-    item.textContent = input.value;
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+
+    checkbox.addEventListener("change", (event) => {
+        item.classList.toggle("completed-task");
+    })
+
+    const span = document.createElement("span");
+    span.textContent = input.value;
 
     const button = document.createElement("button");
 
@@ -20,7 +29,7 @@ btn.addEventListener("click", (event) => {
 
     button.textContent = "Delete"
 
-    item.appendChild(button);
+    item.append(checkbox, span, button);
 
     tasks.appendChild(item);
     
