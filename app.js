@@ -2,6 +2,18 @@ const btn = document.querySelector("#add-btn");
 const tasks = document.querySelector("#task-list");
 const input = document.querySelector("#task-input");
 const selectedElement = document.querySelector("#category-select");
+let currentFilter = "all";
+
+const filterButton = document.querySelectorAll(".filter-btn")
+for (let i = 0; i < filterButton.length; i++) {
+    filterButton[i].addEventListener("click", (event) => {
+        currentFilter = event.target.dataset.filter;
+
+        renderTasks();
+    })
+    
+}
+
 
 const taskArray = (JSON.parse(localStorage.getItem("taskArray")) || []);
 
@@ -13,6 +25,12 @@ function renderTasks() {
     tasks.innerHTML = "";
     
     for (let i = 0; i < taskArray.length; i++) {
+        if (currentFilter === "active" && taskArray[i].completed) {
+            continue;
+        } else if (currentFilter === "completed" && !taskArray[i].completed) {
+            continue;
+        }
+
         const item = document.createElement("li");
         item.classList.add("item");
 
