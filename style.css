@@ -1,3 +1,27 @@
 .completed-task {
     text-decoration: line-through;
 }
+
+.personal {
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    border: solid 2px darkblue;
+    border-radius: 10px;
+}
+
+.work {
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    border: solid 2px darkorange;
+    border-radius: 10px;
+}
+
+.urgent {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border: solid 2px darkred;
+    border-radius: 10px;
+}

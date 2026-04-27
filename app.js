@@ -1,6 +1,7 @@
 const btn = document.querySelector("#add-btn");
 const tasks = document.querySelector("#task-list");
 const input = document.querySelector("#task-input");
+const selectedElement = document.querySelector("#category-select");
 
 const taskArray = (JSON.parse(localStorage.getItem("taskArray")) || []);
 
@@ -34,6 +35,10 @@ function renderTasks() {
         const span = document.createElement("span");
         span.textContent = taskArray[i].text;
 
+        const taskSpan = document.createElement("span");
+        taskSpan.textContent = taskArray[i].category;
+        taskSpan.classList.add("task-text-span", taskArray[i].category);
+
         const button = document.createElement("button");
 
         button.addEventListener("click", (event) => {
@@ -46,7 +51,7 @@ function renderTasks() {
 
         button.textContent = "Delete"
 
-        item.append(checkbox, span, button);
+        item.append(taskSpan, checkbox, span, button);
 
         tasks.appendChild(item);
             
@@ -62,7 +67,7 @@ btn.addEventListener("click", (event) => {
         return;
     }
 
-    const newTask = {text: input.value, completed: false};
+    const newTask = {text: input.value, completed: false, category: selectedElement.value};
 
     taskArray.push(newTask);
 
