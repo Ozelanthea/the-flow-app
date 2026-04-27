@@ -37,11 +37,11 @@ function renderTasks() {
         const button = document.createElement("button");
 
         button.addEventListener("click", (event) => {
-            event.target.parentElement.remove();
 
             taskArray.splice(i, 1);
 
             saveTasks();
+            renderTasks();
         })
 
         button.textContent = "Delete"
