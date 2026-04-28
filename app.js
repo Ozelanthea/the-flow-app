@@ -95,8 +95,7 @@ function renderTasks() {
 saveTasks();
 renderTasks();
 
-btn.addEventListener("click", (event) => {
-
+function addTask() {
     if (input.value === "") {
         return;
     }
@@ -110,6 +109,17 @@ btn.addEventListener("click", (event) => {
     renderTasks();
     
     input.value = "";
+}
+
+input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        addTask();
+    }
+})
+
+btn.addEventListener("click", (event) => {
+
+    addTask();
 })
 
 
