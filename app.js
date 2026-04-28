@@ -2,12 +2,19 @@ const btn = document.querySelector("#add-btn");
 const tasks = document.querySelector("#task-list");
 const input = document.querySelector("#task-input");
 const selectedElement = document.querySelector("#category-select");
+const taskCounter = document.querySelector("#task-counter");
 let currentFilter = "all";
 
 const filterButton = document.querySelectorAll(".filter-btn")
 for (let i = 0; i < filterButton.length; i++) {
     filterButton[i].addEventListener("click", (event) => {
         currentFilter = event.target.dataset.filter;
+
+        for (let i = 0; i < filterButton.length; i++) {
+            filterButton[i].classList.remove("active");
+        }
+
+        event.target.classList.add("active");
 
         renderTasks();
     })
@@ -23,6 +30,13 @@ function saveTasks() {
 
 function renderTasks() {
     tasks.innerHTML = "";
+
+    const counter = taskArray.filter((task) => !task.completed).length;
+    if (counter === 1) {
+        taskCounter.textContent = counter + " " + "task remaining.";
+    } else {
+        taskCounter.textContent = counter + " " + "tasks remaining.";
+    }
     
     for (let i = 0; i < taskArray.length; i++) {
         if (currentFilter === "active" && taskArray[i].completed) {
@@ -52,12 +66,14 @@ function renderTasks() {
 
         const span = document.createElement("span");
         span.textContent = taskArray[i].text;
+        span.classList.add("task-span");
 
         const taskSpan = document.createElement("span");
         taskSpan.textContent = taskArray[i].category;
         taskSpan.classList.add("task-text-span", taskArray[i].category);
 
         const button = document.createElement("button");
+        button.classList.add("delete-button");
 
         button.addEventListener("click", (event) => {
 
