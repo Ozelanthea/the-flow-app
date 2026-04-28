@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Arimo", sans-serif;
     padding: 40px 20px;
@@ -110,4 +114,19 @@ ul {
     padding: 5px;
     border: solid 2px #E2E8F0 ;
     border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    header, main {
+        max-width: 100%;
+    }
+
+    .input-area {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #task-input, #category-select, #add-btn {
+        width: 100%;
+    }
 }
