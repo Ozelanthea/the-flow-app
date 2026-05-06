@@ -13,6 +13,12 @@ header, main {
     margin: 0 auto;
 }
 
+#dark-mode-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 h1 {
     color: #1E293B;
 }
@@ -113,6 +119,87 @@ ul {
     color: #E11D48;
     padding: 5px;
     border: solid 2px #E2E8F0 ;
+    border-radius: 10px;
+}
+
+/* .dark {
+    
+} */
+
+.dark {
+    background-color: #0F172A;
+}
+
+.dark h1 {
+    color: #E2E8F0;
+}
+
+.dark #task-counter {
+    color: #94A3B8;
+}
+
+.dark #task-input, .dark #category-select {
+    background-color: #1E293B;
+    padding: 8px;
+    border: solid 2px #334155;
+    border-radius: 6px;
+    color: #E2E8F0;
+}
+
+.dark .item {
+    display: flex;
+    align-items: center;
+    background-color: #1E293B;
+    padding: 10px;
+    border: solid 2px #334155 ;
+    border-radius: 10px;
+    margin: 10px 0px;
+}
+
+.dark .task-span {
+    flex: 1;
+    color: #E2E8F0;
+}
+
+.dark .delete-button:hover {
+    background-color: #EF4444;
+    color: white;
+}
+
+.dark .filter-btn {
+    background-color: #1E293B;
+    color: #E2E8F0;
+    padding: 6px;
+    border: solid 2px #334155;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dark .filter-btn:hover {
+    background-color: #334155;
+}
+
+.dark .personal {
+    background-color: #1E293B;
+    color: #4F46E5;
+    padding: 5px;
+    border: solid 2px #334155 ;
+    border-radius: 10px;
+}
+
+.dark .work {
+    background-color: #1E293B;
+    color: #EA580C;
+    padding: 5px;
+    border: solid 2px #334155 ;
+    border-radius: 10px;
+}
+
+.dark .urgent {
+    background-color: #1E293B;
+    color: #E11D48;
+    padding: 5px;
+    border: solid 2px #334155 ;
     border-radius: 10px;
 }
 

@@ -3,7 +3,13 @@ const tasks = document.querySelector("#task-list");
 const input = document.querySelector("#task-input");
 const selectedElement = document.querySelector("#category-select");
 const taskCounter = document.querySelector("#task-counter");
+const darkModeButton = document.querySelector("#dark-mode-btn");
 let currentFilter = "all";
+
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    darkModeButton.textContent = "☀️ Light Mode";
+} 
 
 const filterButton = document.querySelectorAll(".filter-btn")
 for (let i = 0; i < filterButton.length; i++) {
@@ -122,4 +128,17 @@ btn.addEventListener("click", (event) => {
     addTask();
 })
 
+darkModeButton.addEventListener("click", event => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        darkModeButton.textContent = "☀️ Light Mode";
+        localStorage.setItem("theme", "dark");
+    } else {
+        darkModeButton.textContent = "🌙 Dark Mode";
+        localStorage.setItem("theme", "light");
+    }
+
+    
+})
 
