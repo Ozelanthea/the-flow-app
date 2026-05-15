@@ -4,6 +4,7 @@ const input = document.querySelector("#task-input");
 const selectedElement = document.querySelector("#category-select");
 const taskCounter = document.querySelector("#task-counter");
 const darkModeButton = document.querySelector("#dark-mode-btn");
+const dueDate = document.querySelector("#due-date");
 let currentFilter = "all";
 
 if (localStorage.getItem("theme") === "dark") {
@@ -91,7 +92,19 @@ function renderTasks() {
 
         button.textContent = "Delete"
 
-        item.append(taskSpan, checkbox, span, button);
+        const dueDateSpan = document.createElement("span");
+        dueDateSpan.classList.add("due-date-span");
+
+        if (taskArray[i].dueDate) {
+            dueDateSpan.textContent = `Due: ${taskArray[i].dueDate}`;
+            
+            if (taskArray[i].dueDate < new Date().toISOString().slice(0, 10)) {
+            dueDateSpan.classList.add("overdue");
+            }
+        
+        }
+
+        item.append(taskSpan, checkbox, span, dueDateSpan, button);
 
         tasks.appendChild(item);
             
@@ -106,7 +119,7 @@ function addTask() {
         return;
     }
 
-    const newTask = {text: input.value, completed: false, category: selectedElement.value};
+    const newTask = {text: input.value, completed: false, category: selectedElement.value, dueDate: dueDate.value ? dueDate.value : null};
 
     taskArray.push(newTask);
 
@@ -115,6 +128,7 @@ function addTask() {
     renderTasks();
     
     input.value = "";
+    dueDate.value = "";
 }
 
 input.addEventListener("keydown", (event) => {

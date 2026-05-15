@@ -122,6 +122,17 @@ ul {
     border-radius: 10px;
 }
 
+.due-date-span {
+    color: #64748B;
+    font-size: 12px;
+}
+
+.overdue {
+    color: #EF4444;
+    font-weight: bold;
+    font-size: 12px;
+}
+
 /* .dark {
     
 } */
