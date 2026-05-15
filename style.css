@@ -122,9 +122,23 @@ ul {
     border-radius: 10px;
 }
 
+#dark-mode-btn {
+    padding: 8px;
+    border: solid 2px #E2E8F0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#due-date {
+    padding: 8px;
+    border: solid 2px #E2E8F0;
+    border-radius: 6px;
+}
+
 .due-date-span {
     color: #64748B;
     font-size: 12px;
+    margin-right: 10px;
 }
 
 .overdue {
@@ -165,6 +179,22 @@ ul {
     border: solid 2px #334155 ;
     border-radius: 10px;
     margin: 10px 0px;
+}
+
+.dark #dark-mode-btn {
+    background-color: #1E293B;
+    padding: 8px;
+    border: solid 2px #334155;
+    border-radius: 6px;
+    color: #E2E8F0;
+}
+
+.dark #due-date {
+    background-color: #1E293B;
+    padding: 8px;
+    border: solid 2px #334155;
+    border-radius: 6px;
+    color: #E2E8F0;
 }
 
 .dark .task-span {
